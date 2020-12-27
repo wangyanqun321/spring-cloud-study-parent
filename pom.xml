@@ -6,8 +6,9 @@
     <modules>
         <module>spring-cloud-study-eureka01</module>
         <module>spring-cloud-study-eureka02</module>
-        <module>spring-cloud-study-provider</module>
-        <module>spring-cloud-study-consumer</module>
+        <module>spring-cloud-study-product-service</module>
+        <module>spring-cloud-study-order-service</module>
+        <module>spring-cloud-study-gateway</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

@@ -5,17 +5,17 @@ spring:
   application:
     name: eureka-server
 
-# ÅäÖÃ×¢²áÖĞĞÄ
+# é…ç½®æ³¨å†Œä¸­å¿ƒ
 eureka:
   instance:
     hostname: eureka01
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
   client:
-    # ÊÇ·ñ½«×Ô¼º×¢²áµ½×¢²áÖĞĞÄ
+    # æ˜¯å¦å°†è‡ªå·±æ³¨å†Œåˆ°æ³¨å†Œä¸­å¿ƒ
     # register-with-eureka: false
-    # ÊÇ·ñ´Ó×¢²áÖĞĞÄ»ñÈ¡×¢²áÁĞ±í
+    # æ˜¯å¦ä»æ³¨å†Œä¸­å¿ƒè·å–æ³¨å†Œåˆ—è¡¨
     # fetch-registry: false
-    # ×¢²áÖĞĞÄ¶ÔÍâ±©Â¶µÄ×¢²áµØÖ·
+    # æ³¨å†Œä¸­å¿ƒå¯¹å¤–æš´éœ²çš„æ³¨å†Œåœ°å€
     service-url:
       defaultZone: http://localhost:8081/eureka/

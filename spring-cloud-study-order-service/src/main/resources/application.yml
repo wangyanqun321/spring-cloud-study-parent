@@ -1,0 +1,48 @@
+server:
+  port: 9091
+  # 开启全局压缩(开启全局压缩则无需开启feign压缩)
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/plain
+
+# 开启服务调用http压缩
+feign:
+  compression:
+    request:
+      enabled: true
+      mime-types: application/json,application/xml,text/html,text/plain
+      min-request-size: 512
+    response:
+      enabled: true
+  hystrix:
+    enabled: true
+ribbon:
+  ConnectTimeout: 1
+  ReadTimeOut: 1
+  # 开启feign http连接池
+  httpclient:
+    enabled: true
+
+service-provider:
+  ribbon:
+    NFLoadBalancerRuleClass: com.netflix.loadbalancer.RandomRule # 负载均衡策略：随机
+    OkToRetryOnAllOperations: true # 是否对所有请求都开启重试
+    MaxAutoRetriesNextServer: 2 # 切换实例重试次数
+    ConnectTimeout: 1 # 最大连接超时时间
+    ReadTimeout: 1 # 最大读取超时时间
+spring:
+  application:
+    name: order-service
+eureka:
+  client:
+    register-with-eureka: true
+    registry-fetch-interval-seconds: 10
+    service-url:
+      defaultZone: http://localhost:8080/eureka,http://localhost:8081/eureka
+
+# 度量指标监控与健康检查
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream
